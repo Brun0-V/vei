@@ -86,9 +86,11 @@ fi
 
 echo "  Get these from https://dash.cloudflare.com/ -> AI -> Workers AI -> Use REST API"
 echo "  Enter your credentials (or press enter to edit .env later):"
-read -rp "  Cloudflare Account ID: " CF_ID
-read -rp "  Cloudflare API Token: " CF_TOKEN
+read -rp "  Cloudflare Account ID: " CF_ID || true
+read -rp "  Cloudflare API Token: " CF_TOKEN || true
 
+CF_ID="${CF_ID:-}"
+CF_TOKEN="${CF_TOKEN:-}"
 if [ -n "$CF_ID" ]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/your_cloudflare_account_id/$CF_ID/" "$ENV_FILE"
@@ -122,8 +124,9 @@ echo "    3) Codex CLI"
 echo "    4) Pi (original) — uses the original Pi npm package"
 echo "    5) All of the above"
 echo "    6) Skip (I'll install manually)"
-read -rp "  Choice [1-6]: " AGENT_CHOICE
+read -rp "  Choice [1-6]: " AGENT_CHOICE || true
 
+AGENT_CHOICE="${AGENT_CHOICE:-}"
 case "$AGENT_CHOICE" in
   1) install_skill "$HOME/.config/opencode/skills/vision-inventory-workflow/SKILL.md" ;;
   2) install_skill "$HOME/.claude/skills/vision-inventory-workflow/SKILL.md" ;;
