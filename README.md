@@ -25,7 +25,7 @@ One-liner:
 curl -fsSL https://raw.githubusercontent.com/Brun0-V/vei/main/scripts/quick-install.sh -o /tmp/vei-install.sh && bash /tmp/vei-install.sh
 ```
 
-This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, and optionally installs the agent skill. **Requires an MCP-capable agent** (OpenCode, Claude Code, Codex CLI, Cursor, etc.).
+This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, installs the agent skill, and **automatically configures the MCP server** in your agent's settings. **Requires an MCP-capable agent** (OpenCode, Claude Code, Codex CLI, Cursor, etc.).
 
 For Pi users: `pi install npm:vision-electronic-indexing-pi` uses the [original Pi package](https://pi.dev/packages/vision-electronic-indexing-pi).
 
