@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Agent-assisted electronics/PCB photo indexing that works with **any coding agent harness** — OpenCode, Claude Code, Codex CLI, Cursor, and more.
+Agent-assisted electronics/PCB photo indexing that works with **any MCP-capable coding agent harness** — OpenCode, Claude Code, Codex CLI, Cursor, and more. Also available as a [Pi](https://pi.dev) package.
 
 Processes images with Cloudflare Workers AI, extracts visible IC/package markings, prepares parts for datasheet lookup, and produces an enriched inventory CSV.
 
@@ -25,7 +25,9 @@ One-liner:
 curl -fsSL https://raw.githubusercontent.com/Brun0-V/vei/main/scripts/quick-install.sh | bash
 ```
 
-This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, and optionally installs the agent skill.
+This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, and optionally installs the agent skill. **Requires an MCP-capable agent** (OpenCode, Claude Code, Codex CLI, Cursor, etc.).
+
+For Pi users: `pi install npm:vision-electronic-indexing-pi` uses the [original Pi package](https://pi.dev/packages/vision-electronic-indexing-pi).
 
 Or clone manually:
 

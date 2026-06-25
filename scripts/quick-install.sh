@@ -119,18 +119,31 @@ echo "  Which agent are you using?"
 echo "    1) OpenCode"
 echo "    2) Claude Code"
 echo "    3) Codex CLI"
-echo "    4) All of the above"
-echo "    5) Skip (I'll install manually)"
-read -rp "  Choice [1-5]: " AGENT_CHOICE
+echo "    4) Pi (original) — uses the original Pi npm package"
+echo "    5) All of the above"
+echo "    6) Skip (I'll install manually)"
+read -rp "  Choice [1-6]: " AGENT_CHOICE
 
 case "$AGENT_CHOICE" in
   1) install_skill "$HOME/.config/opencode/skills/vision-inventory-workflow/SKILL.md" ;;
   2) install_skill "$HOME/.claude/skills/vision-inventory-workflow/SKILL.md" ;;
   3) install_skill "$HOME/.agents/skills/vision-inventory-workflow/SKILL.md" ;;
   4)
+    echo -e "  ${CYAN}Pi install:${NC} pi install npm:vision-electronic-indexing-pi"
+    if command -v pi &>/dev/null; then
+      pi install npm:vision-electronic-indexing-pi
+    else
+      echo "  'pi' command not found. Install Pi first, then run:"
+      echo "  pi install npm:vision-electronic-indexing-pi"
+    fi
+    ;;
+  5)
     install_skill "$HOME/.config/opencode/skills/vision-inventory-workflow/SKILL.md"
     install_skill "$HOME/.claude/skills/vision-inventory-workflow/SKILL.md"
     install_skill "$HOME/.agents/skills/vision-inventory-workflow/SKILL.md"
+    if command -v pi &>/dev/null; then
+      pi install npm:vision-electronic-indexing-pi
+    fi
     ;;
   *) echo "  Skipping." ;;
 esac
