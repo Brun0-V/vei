@@ -85,12 +85,18 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 
 echo "  Get these from https://dash.cloudflare.com/ -> AI -> Workers AI -> Use REST API"
-echo "  Enter your credentials (or press enter to edit .env later):"
-read -rp "  Cloudflare Account ID: " CF_ID || true
-read -rp "  Cloudflare API Token: " CF_TOKEN || true
-
-CF_ID="${CF_ID:-}"
-CF_TOKEN="${CF_TOKEN:-}"
+if [ -t 0 ]; then
+  echo "  Enter your credentials (or press enter to edit .env later):"
+  read -rp "  Cloudflare Account ID: " CF_ID || true
+  read -rp "  Cloudflare API Token: " CF_TOKEN || true
+  CF_ID="${CF_ID:-}"
+  CF_TOKEN="${CF_TOKEN:-}"
+else
+  echo "  Non-interactive mode: set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_AUTH_TOKEN env vars,"
+  echo "  or edit $ENV_FILE after install."
+  CF_ID=""
+  CF_TOKEN=""
+fi
 if [ -n "$CF_ID" ]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/your_cloudflare_account_id/$CF_ID/" "$ENV_FILE"

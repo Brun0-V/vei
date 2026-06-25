@@ -22,7 +22,7 @@ The vision step does **not** perform datasheet lookup or invent part details. Da
 One-liner:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Brun0-V/vei/main/scripts/quick-install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Brun0-V/vei/main/scripts/quick-install.sh -o /tmp/vei-install.sh && bash /tmp/vei-install.sh
 ```
 
 This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, and optionally installs the agent skill. **Requires an MCP-capable agent** (OpenCode, Claude Code, Codex CLI, Cursor, etc.).
