@@ -22,7 +22,7 @@ The vision step does **not** perform datasheet lookup or invent part details. Da
 One-liner:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Pichi-Cell/vision-electronic-indexing/main/scripts/quick-install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Brun0-V/vei/main/scripts/quick-install.sh | bash
 ```
 
 This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare credentials, and optionally installs the agent skill.
@@ -30,7 +30,7 @@ This installs to `~/.vei/`, sets up a Python venv, prompts for Cloudflare creden
 Or clone manually:
 
 ```bash
-git clone https://github.com/Pichi-Cell/vision-electronic-indexing.git
+git clone https://github.com/Brun0-V/vei.git
 cd vision-electronic-indexing
 python3 -m pip install -r requirements.txt
 cp .env.example .env  # then edit with your credentials

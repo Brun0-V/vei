@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="${REPO:-Pichi-Cell/vision-electronic-indexing}"
+REPO="${REPO:-Brun0-V/vei}"
 BRANCH="${BRANCH:-main}"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.vei}"
 VENV_DIR="$INSTALL_DIR/.venv"
